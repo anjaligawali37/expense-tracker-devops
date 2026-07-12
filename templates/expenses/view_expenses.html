@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Expenses</title>
+</head>
+<body>
+
+<h2>My Expenses</h2>
+
+<a href="/expenses/add/">+ Add New Expense</a>
+
+<br><br>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+    </tr>
+
+    {% for expense in expenses %}
+    <tr>
+        <td>{{ expense.title }}</td>
+        <td>{{ expense.amount }}</td>
+        <td>{{ expense.category }}</td>
+        <td>{{ expense.date }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No expenses found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+<a href="/">Home</a>
+
+</body>
+</html>
