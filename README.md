@@ -1,29 +1,53 @@
+# 💰 Expense Tracker - CI/CD Pipeline with Jenkins, Docker & AWS
+
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Django](https://img.shields.io/badge/Django-5.2-green)
 ![Docker](https://img.shields.io/badge/Docker-2496ED)
 ![Jenkins](https://img.shields.io/badge/Jenkins-CI-red)
 ![AWS](https://img.shields.io/badge/AWS-EC2-orange)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
-# 💰 Expense Tracker - CI/CD Pipeline with Jenkins, Docker & AWS
-
-A Django-based Expense Tracker application demonstrating an end-to-end CI/CD pipeline using GitHub, Jenkins, Docker, Docker Hub, Docker Compose, and AWS EC2.
+A Django-based **Expense Tracker** application demonstrating an end-to-end **CI/CD pipeline** using **GitHub, GitHub Webhooks, Jenkins, Docker, Docker Hub, Docker Compose, and AWS EC2**.
 
 ---
-## 🏗️ CI/CD Architecture
 
-![CI/CD Architecture](images/architecture.png)
+# 🎯 Project Objective
 
+Build and deploy a Django application using an automated CI/CD pipeline where every push to the **main** branch automatically triggers Jenkins to build, push, and deploy the latest version on an AWS EC2 instance.
 
-## 🚀 Features
+---
+
+# 🏗️ CI/CD Architecture
+
+<p align="center">
+  <img src="images/architecture.png" alt="CI/CD Architecture" width="850"/>
+</p>
+
+---
+
+# 🌐 Live Demo
+
+Application URL
+
+```
+http://YOUR-EC2-PUBLIC-IP:8000
+```
+
+> Replace `YOUR-EC2-PUBLIC-IP` with your AWS EC2 public IP.
+
+---
+
+# 🚀 Features
 
 - User Registration & Login
 - Add Expenses
 - View Expenses
 - Dockerized Django Application
 - Automated CI/CD Pipeline
-- Automatic Deployment using GitHub Webhooks
+- GitHub Webhook Integration
 - Docker Hub Integration
 - AWS EC2 Deployment
+- Automatic Deployment after every Git Push
 
 ---
 
@@ -54,6 +78,13 @@ expense-tracker-devops/
 ├── dashboard/
 ├── expenses/
 ├── templates/
+├── images/
+│   ├── architecture.png
+│   ├── jenkins-success.png
+│   ├── webhook-success.png
+│   ├── docker-ps.png
+│   └── expense-tracker.png
+│
 ├── Dockerfile
 ├── docker-compose.yaml
 ├── Jenkinsfile
@@ -64,9 +95,51 @@ expense-tracker-devops/
 
 ---
 
-# ⚙️ CI/CD Workflow
+# 📋 Prerequisites
+
+- Python 3.10+
+- Docker
+- Docker Compose
+- Jenkins
+- Git
+- AWS EC2 (Ubuntu)
+- Docker Hub Account
+
+---
+
+# 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/anjaligawali37/expense-tracker-devops.git
+
+cd expense-tracker-devops
+```
+
+Build the Docker image
+
+```bash
+docker build -t expense-tracker .
+```
+
+Run the application
+
+```bash
+docker compose up -d
+```
+
+Open
 
 ```
+http://localhost:8000
+```
+
+---
+
+# ⚙️ CI/CD Workflow
+
+```text
 Developer
       │
       ▼
@@ -83,9 +156,9 @@ Jenkins Pipeline
       │
       ├── Clone Repository
       ├── Build Docker Image
-      ├── Push Docker Image to Docker Hub
+      ├── Push Image to Docker Hub
       ├── Stop Existing Container
-      └── Deploy New Container
+      └── Deploy Latest Container
       │
       ▼
 AWS EC2 Instance
@@ -94,27 +167,36 @@ AWS EC2 Instance
 Expense Tracker Application
 ```
 
----
+### Workflow Steps
+
 1. Developer pushes code to GitHub.
 2. GitHub Webhook automatically triggers Jenkins.
 3. Jenkins clones the latest source code.
 4. Jenkins builds a Docker image.
-5. Jenkins pushes the image to Docker Hub.
-6. Docker Compose deploys the latest container on AWS EC2.
-7. The Expense Tracker application is updated automatically.
+5. Jenkins pushes the Docker image to Docker Hub.
+6. Jenkins deploys the latest image using Docker Compose.
+7. The updated Expense Tracker application is automatically available on AWS EC2.
+
+---
 
 # 🐳 Docker
 
-## Build Image
+### Build Image
 
 ```bash
 docker build -t expense-tracker .
 ```
 
-## Run Container
+### Run Container
 
 ```bash
 docker run -d -p 8000:8000 expense-tracker
+```
+
+### Docker Compose
+
+```bash
+docker compose up -d
 ```
 
 ---
@@ -130,37 +212,54 @@ docker run -d -p 8000:8000 expense-tracker
 
 # ☁️ Deployment
 
-The application is deployed on an AWS EC2 Ubuntu instance.
+The application is deployed on an **AWS EC2 Ubuntu Instance**.
 
-Deployment is completely automated using:
+Deployment is fully automated using:
 
+- GitHub
 - GitHub Webhooks
-- Jenkins Pipeline
+- Jenkins
 - Docker
+- Docker Hub
 - Docker Compose
 
 Whenever code is pushed to the **main** branch:
 
-1. GitHub sends a webhook to Jenkins.
-2. Jenkins automatically starts the pipeline.
-3. Docker builds a new image.
+1. GitHub sends a webhook request to Jenkins.
+2. Jenkins automatically starts the CI/CD pipeline.
+3. Docker builds a new application image.
 4. The image is pushed to Docker Hub.
-5. Docker Compose deploys the latest container on AWS EC2.
+5. Docker Compose stops the old container.
+6. Docker Compose deploys the latest container.
+7. The updated application becomes available on AWS EC2.
 
 ---
+
 # 📸 Screenshots
 
-## Jenkins Pipeline
+## CI/CD Architecture
+
+![Architecture](images/architecture.png)
+
+---
+
+## Jenkins Pipeline Success
 
 ![Jenkins Pipeline](images/jenkins-success.png)
+
+---
 
 ## GitHub Webhook
 
 ![Webhook](images/webhook-success.png)
 
-## Docker Container
+---
+
+## Docker Container Running
 
 ![Docker](images/docker-ps.png)
+
+---
 
 ## Running Application
 
@@ -170,17 +269,28 @@ Whenever code is pushed to the **main** branch:
 
 # 📖 Learning Outcomes
 
-This project helped me gain practical experience with:
+Through this project, I gained practical experience with:
 
-- CI/CD Pipeline
+- CI/CD Pipeline Implementation
 - Jenkins Automation
 - GitHub Webhooks
-- Docker
-- Docker Compose
-- Docker Hub
-- AWS EC2
-- Linux
-- Django Deployment
+- Docker & Docker Compose
+- Docker Hub Integration
+- AWS EC2 Deployment
+- Linux Administration
+- Django Application Deployment
+- Git & GitHub Workflow
+
+---
+
+# 🔮 Future Improvements
+
+- Add Nginx Reverse Proxy
+- Use PostgreSQL Database
+- Integrate Kubernetes
+- Configure HTTPS using Let's Encrypt
+- Add Monitoring with Prometheus & Grafana
+- Deploy using Terraform
 
 ---
 
@@ -188,10 +298,14 @@ This project helped me gain practical experience with:
 
 **Anjali Gawali**
 
-GitHub: https://github.com/anjaligawali37
+📌 GitHub  
+https://github.com/anjaligawali37
 
-LinkedIn: *https://www.linkedin.com/in/anjali-gawali-248b2a399/*
+📌 LinkedIn  
+https://www.linkedin.com/in/anjali-gawali-248b2a399/
 
 ---
 
-⭐ If you found this project useful, consider giving it a star!
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
