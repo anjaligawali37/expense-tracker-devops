@@ -3,6 +3,10 @@
 A Django-based Expense Tracker application demonstrating an end-to-end CI/CD pipeline using GitHub, Jenkins, Docker, Docker Hub, Docker Compose, and AWS EC2.
 
 ---
+## 🏗️ CI/CD Architecture
+
+![CI/CD Architecture](images/architecture.png)
+
 
 ## 🚀 Features
 
@@ -85,6 +89,13 @@ Expense Tracker Application
 ```
 
 ---
+1. Developer pushes code to GitHub.
+2. GitHub Webhook automatically triggers Jenkins.
+3. Jenkins clones the latest source code.
+4. Jenkins builds a Docker image.
+5. Jenkins pushes the image to Docker Hub.
+6. Docker Compose deploys the latest container on AWS EC2.
+7. The Expense Tracker application is updated automatically.
 
 # 🐳 Docker
 
