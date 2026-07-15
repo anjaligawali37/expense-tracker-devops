@@ -131,24 +131,29 @@ Whenever code is pushed to the **main** branch:
 5. Docker Compose deploys the latest container on AWS EC2.
 
 ---
-
 # 📸 Screenshots
 
-## Jenkins Pipeline
+## Expense Tracker Application
 
-_Add Jenkins Success Screenshot_
+![Expense Tracker](images/expense-tracker-app.png)
+
+---
+
+## Jenkins Pipeline Success
+
+![Jenkins](images/jenkins-success.png)
+
+---
 
 ## GitHub Webhook
 
-_Add Webhook Success Screenshot_
+![Webhook](images/github-webhook.png)
+
+---
 
 ## Docker Container
 
-_Add docker ps Screenshot_
-
-## Running Application
-
-_Add Expense Tracker Screenshot_
+![Docker](images/docker-container.png)
 
 ---
 
