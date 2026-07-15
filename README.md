@@ -133,27 +133,21 @@ Whenever code is pushed to the **main** branch:
 ---
 # 📸 Screenshots
 
-## Expense Tracker Application
+## Jenkins Pipeline
 
-![Expense Tracker](images/expense-tracker-app.png)
-
----
-
-## Jenkins Pipeline Success
-
-![Jenkins](images/jenkins-success.png)
-
----
+![Jenkins Pipeline](images/jenkins-success.png)
 
 ## GitHub Webhook
 
-![Webhook](images/github-webhook.png)
-
----
+![Webhook](images/webhook-success.png)
 
 ## Docker Container
 
-![Docker](images/docker-container.png)
+![Docker](images/docker-ps.png)
+
+## Running Application
+
+![Expense Tracker](images/expense-tracker.png)
 
 ---
 
