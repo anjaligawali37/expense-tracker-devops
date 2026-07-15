@@ -1,8 +1,10 @@
 # Base Image
 FROM python:3.10-slim
 
+
 # Working Directory
 WORKDIR /app
+
 
 # Copy requirements
 COPY requirements.txt .
