@@ -1,3 +1,9 @@
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Django](https://img.shields.io/badge/Django-5.2-green)
+![Docker](https://img.shields.io/badge/Docker-2496ED)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI-red)
+![AWS](https://img.shields.io/badge/AWS-EC2-orange)
+
 # 💰 Expense Tracker - CI/CD Pipeline with Jenkins, Docker & AWS
 
 A Django-based Expense Tracker application demonstrating an end-to-end CI/CD pipeline using GitHub, Jenkins, Docker, Docker Hub, Docker Compose, and AWS EC2.
